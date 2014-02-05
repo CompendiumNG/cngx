@@ -1,0 +1,52 @@
+defaultTasks 'build'
+
+
+buildscript {
+    apply plugin: 'java'
+    apply plugin: 'application'
+    apply from: "javafx.gradle"
+
+    group = 'org.compendiumng'
+    version = '0.0.1-SNAPSHOT'
+    mainClassName = "org.compendiumng.cngx.Face"
+}
+
+
+repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url 'http://oss.jfrog.org/artifactory/simple/oss-release-local'
+        }
+        jcenter()
+}
+
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.5'
+    testCompile "junit:junit:4.11"
+    compile(group: 'commons-configuration', name: 'commons-configuration', version:'1.9') {
+        exclude(module: 'commons-logging')
+    }
+    compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.5'
+    compile group: 'org.slf4j', name: 'jcl-over-slf4j', version:'1.7.5'
+    compile(group: 'org.slf4j', name: 'log4j-over-slf4j', version:'1.7.5') {
+        exclude(module: 'slf4j-log4j12')
+        exclude(module: 'log4j')
+    }
+    compile group: 'org.slf4j', name: 'jul-to-slf4j', version:'1.7.5'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version:'1.0.13'
+    compile group: 'org.jrebirth',name: 'core', version: '0.7.6'
+    compile group: 'org.jrebirth',name: 'preloader', version: '0.7.6'
+
+}
+
+
+compileJava {
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+}
+
+
+
+

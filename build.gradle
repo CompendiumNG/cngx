@@ -1,0 +1,56 @@
+defaultTasks 'build'
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.10'
+}
+
+allprojects {
+	group = 'org.compendiumng'
+	version = '0.0.1-SNAPSHOT'
+}
+
+subprojects {
+	apply plugin: 'java'
+       	apply plugin: 'application'
+	
+       	compileJava {
+        	sourceCompatibility = 1.7
+		targetCompatibility = 1.7
+       	}
+
+	configure(subprojects.findAll {it.name == 'Face'}) {
+		
+		mainClassName = "org.compendiumng.cngx.Face"
+
+		jar {
+			destinationDir=file("$buildDir")
+			archiveName='cngxface.jar'
+    			manifest {
+        			//attributes 'Implementation-Title': 'cngx application', 'Implementation-Version': version
+				// , 'Main-class': 'org.compendiumng.cngx.Face'
+    			}
+			from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+			exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA' 
+		}
+
+	}
+        configure(subprojects.findAll {it.name == 'Brain'}) {
+                // apply plugin: 'osgi'
+
+                mainClassName = "org.compendiumng.cngx.Brain"
+
+
+                jar {
+                        destinationDir=file("$buildDir")
+                        archiveName='cngxbrain.jar'
+                        manifest {
+                                // attributes 'Implementation-Title': 'cngx application', 'Implementation-Version': version
+				// , 'Main-class': 'org.compendiumng.cngx.Brain'
+                        }
+                        from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+                        exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
+                }
+
+        }
+
+}
