@@ -1,4 +1,4 @@
-description = 'cngx Brain backend'
+description = 'cngx Memory backend'
 
 repositories {
         mavenLocal()
