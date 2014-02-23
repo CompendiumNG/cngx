@@ -1,19 +1,13 @@
 *.class
 *.iml
-.idea
-**/build/
-.gradle/
-.classpath
-.settings
-.project
-**/bin/
-
-
-# Package Files #
 *.jar
 *.war
 *.ear
-build
-target
+**/build/
+**/target/
+**/bin/
+.idea
+.classpath
+.settings
+.project
 runner
-
