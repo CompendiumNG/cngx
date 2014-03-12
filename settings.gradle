@@ -1,6 +1,0 @@
-rootProject.name = 'cngx'
-include ':Face', ':Brain', ':Memory'
-
-project(':Face').projectDir = "$rootDir/Face" as File
-project(':Brain').projectDir = "$rootDir/Brain" as File
-project(':Memory').projectDir = "$rootDir/Memory" as File

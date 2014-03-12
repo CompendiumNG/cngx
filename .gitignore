@@ -13,4 +13,7 @@
 *.jar
 *.war
 *.ear
-/build
+build
+target
+runner
+

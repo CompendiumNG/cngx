@@ -1,0 +1,16 @@
+HOW TO PREPARE ECLIPSE SETUP
+============================
+
+prerequisite:
+=============
+
+ - java JDK 7
+ - maven 3
+ - eclipse with git and M2E plugin installed
+
+type:
+ - mvn clean eclipse:clean eclipse:eclipse
+ - then open eclipse and import project as "general project" (in the import dialog leave everything as it is - just choose root directory and press "Finish")
+
+
+
