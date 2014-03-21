@@ -45,11 +45,9 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>poms</module>
-    <module>provision</module>
-    <module>face</module>
     <module>brain</module>
     <module>memory</module>
+    <module>face</module>
   </modules>
 
   <build>
